@@ -57,3 +57,12 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+++++++++++++++++++++++++++++++++
+
+i am added this functiionality
+a=10
+b=10
+c=a+b
+print(c)
