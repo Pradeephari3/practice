@@ -1,0 +1,59 @@
+# Function to add a new student to the database
+def add_student(database):
+    name = input("Enter student's name: ")
+    roll_number = input("Enter student's roll number: ")
+    department = input("Enter student's department: ")
+    database[roll_number] = {'Name': name, 'Department': department}
+    print("Student added successfully!")
+
+# Function to display all students in the database
+def display_students(database):
+    print("Student Database:")
+    for roll_number, student_info in database.items():
+        print(f"Roll Number: {roll_number}, Name: {student_info['Name']}, Department: {student_info['Department']}")
+
+# Function to search for a student by roll number
+def search_student(database):
+    roll_number = input("Enter roll number to search: ")
+    if roll_number in database:
+        student_info = database[roll_number]
+        print(f"Roll Number: {roll_number}, Name: {student_info['Name']}, Department: {student_info['Department']}")
+    else:
+        print("Student not found!")
+
+# Function to delete a student from the database
+def delete_student(database):
+    roll_number = input("Enter roll number to delete: ")
+    if roll_number in database:
+        del database[roll_number]
+        print("Student deleted successfully!")
+    else:
+        print("Student not found!")
+
+def main():
+    student_database = {}
+    while True:
+        print("\nWelcome to Student Database Management System")
+        print("1. Add Student")
+        print("2. Display Students")
+        print("3. Search Student")
+        print("4. Delete Student")
+        print("5. Exit")
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            add_student(student_database)
+        elif choice == '2':
+            display_students(student_database)
+        elif choice == '3':
+            search_student(student_database)
+        elif choice == '4':
+            delete_student(student_database)
+        elif choice == '5':
+            print("Exiting program. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please choose again.")
+
+if __name__ == "__main__":
+    main()
